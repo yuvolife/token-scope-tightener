@@ -1,0 +1,7 @@
+interface:
+  display_name: "Token Scope Tightener"
+  short_description: "先收口任务范围与输出格式，降低无效 token 消耗"
+  default_prompt: "使用 $token-scope-tightener 先收口任务范围、减少无关扫描，并按固定简洁格式回答。"
+
+policy:
+  allow_implicit_invocation: true
