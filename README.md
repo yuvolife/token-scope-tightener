@@ -96,3 +96,9 @@ Or make it part of your persistent workflow by referencing the included always-o
 ## License
 
 Released under the MIT License. See `LICENSE`.
+
+## Quantitative A/B Evaluation
+
+Use [the paired evaluation guide](references/ab-evaluation.md) and `tools/ab_eval.py` to run the existing five task categories with the Skill enabled and disabled on identical commits. The standard-library runner records tokens, cache hits, duration, repeated commands, final modification scope, independent tests and correctness checks, then generates JSON/Markdown comparisons.
+
+See [SDK and client compatibility](references/codex-usage-compatibility.md) before interpreting this as evidence about Codex Desktop. No real efficiency measurements are included. Run offline tool tests with `python -m unittest discover -s tests -v`.

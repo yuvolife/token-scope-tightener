@@ -143,3 +143,9 @@ is_ready_for_daily_use:
 ## Assumption Note
 
 This pack assumes you will substitute real tasks from your own repository. If you test on artificial toy tasks only, the result is weaker and should not be treated as final validation.
+
+## Paired Quantitative Follow-Up
+
+For a resource-efficiency claim, also use [ab-evaluation.md](ab-evaluation.md). Preserve the five behavioral metrics above; additionally collect input/output/cached tokens, elapsed time, explicit repeat-command telemetry, final modified files, required test results and an independent correctness oracle. Use the same task body in both arms, removing the Skill invocation from the common prompt; only the enabled arm adds it.
+
+A smaller scan or shorter answer is insufficient evidence of savings. Missing usage is unknown, not zero. A failed/incorrect enabled run cannot count as successful savings, even if it used fewer tokens. Record all failed pairs and do not claim overall quality-preserving improvement while any pair fails. Hypothesis retries and viewed scope still require trace review; repeated command counts are a proxy.

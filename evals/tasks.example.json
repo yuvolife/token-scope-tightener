@@ -1,0 +1,91 @@
+{
+  "repo": "/absolute/path/to/business-repo",
+  "revision": "REPLACE_WITH_COMMIT_SHA",
+  "model": "REPLACE_WITH_ACCESSIBLE_MODEL_ID",
+  "reasoning_effort": "high",
+  "expected_cli_version": "REPLACE_WITH_EXACT_CODEX_VERSION_OUTPUT",
+  "repeats": 4,
+  "seed": 20261014,
+  "timeout_seconds": 600,
+  "check_timeout_seconds": 300,
+  "tasks": [
+    {
+      "id": "bug_fix",
+      "category": "bug_fix",
+      "prompt": "请在仅限 [相关文件/目录] 内修复 [具体 bug]，不要改动 [禁止项]，最后输出：根因、修改文件、修复点、测试结果、风险点。",
+      "allowed_changes": [
+        "REPLACE_WITH_ALLOWED_PATH"
+      ],
+      "setup": [],
+      "checks": [
+        [
+          "REPLACE_WITH_TEST_EXECUTABLE",
+          "REPLACE_WITH_TEST_ARGUMENT"
+        ]
+      ],
+      "oracle": "/absolute/path/to/independent-oracles/bug_fix.py"
+    },
+    {
+      "id": "small_feature",
+      "category": "small_feature",
+      "prompt": "请在仅限 [相关文件/目录] 内实现 [具体功能]，不要改动 [禁止项]，最后输出：修改文件、实现摘要、验收情况、风险点。",
+      "allowed_changes": [
+        "REPLACE_WITH_ALLOWED_PATH"
+      ],
+      "setup": [],
+      "checks": [
+        [
+          "REPLACE_WITH_TEST_EXECUTABLE",
+          "REPLACE_WITH_TEST_ARGUMENT"
+        ]
+      ],
+      "oracle": "/absolute/path/to/independent-oracles/small_feature.py"
+    },
+    {
+      "id": "test_only",
+      "category": "test_only",
+      "prompt": "请在仅限 [测试文件/模块] 内为 [函数/缺陷] 补充关键路径和边界测试，不改业务逻辑，最后输出：新增测试点、涉及文件、覆盖范围、未覆盖风险。",
+      "allowed_changes": [
+        "REPLACE_WITH_ALLOWED_PATH"
+      ],
+      "setup": [],
+      "checks": [
+        [
+          "REPLACE_WITH_TEST_EXECUTABLE",
+          "REPLACE_WITH_TEST_ARGUMENT"
+        ]
+      ],
+      "oracle": "/absolute/path/to/independent-oracles/test_only.py"
+    },
+    {
+      "id": "code_review",
+      "category": "code_review",
+      "prompt": "请在仅限 [相关文件/目录] 内审查 [模块] 的正确性和边界，不修改代码，按严重程度输出：问题、位置、影响、建议修复方式。",
+      "allowed_changes": [],
+      "setup": [],
+      "checks": [
+        [
+          "REPLACE_WITH_TEST_EXECUTABLE",
+          "REPLACE_WITH_TEST_ARGUMENT"
+        ]
+      ],
+      "oracle": "/absolute/path/to/independent-oracles/code_review.py"
+    },
+    {
+      "id": "large_repo_edit",
+      "category": "large_repo_edit",
+      "prompt": "请只从 [入口文件] 开始，必要时再扩展到直接相关文件，完成 [任务]；不要扫描整个仓库或改动 [禁止项]，最后输出：实际查看范围、修改文件、改动摘要、测试结果、风险点。",
+      "allowed_changes": [
+        "REPLACE_WITH_ALLOWED_PATH"
+      ],
+      "setup": [],
+      "checks": [
+        [
+          "REPLACE_WITH_TEST_EXECUTABLE",
+          "REPLACE_WITH_TEST_ARGUMENT"
+        ]
+      ],
+      "oracle": "/absolute/path/to/independent-oracles/large_repo_edit.py"
+    }
+  ]
+}
